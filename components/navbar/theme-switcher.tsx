@@ -19,6 +19,7 @@ export default function ThemeSwitcher() {
 		if (theme === "dark") {
 			return (
 				<Button
+					aria-hidden
 					variant={"ghost"}
 					size={"icon"}
 					onClick={() => setTheme("light")}
@@ -29,6 +30,7 @@ export default function ThemeSwitcher() {
 		} else {
 			return (
 				<Button
+					aria-hidden
 					variant={"ghost"}
 					size={"icon"}
 					onClick={() => setTheme("dark")}
