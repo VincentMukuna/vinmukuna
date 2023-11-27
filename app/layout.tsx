@@ -22,7 +22,9 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className={`bg-slate-50 dark:bg-[#040D12] dark:text-white `}>
+			<body
+				className={`bg-slate-50 dark:bg-[#040D12] dark:text-white transition-colors`}
+			>
 				<Provider>
 					<Navbar />
 					{children}

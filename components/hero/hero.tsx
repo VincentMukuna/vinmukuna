@@ -31,8 +31,9 @@ function Hero() {
 
 			<div className="flex flex-col flex-auto max-w-sm gap-8 px-4 mx-auto md:max-w-none md:items-start">
 				<div className="flex flex-col gap-4 ">
-					<h1 className="text-3xl font-bold md:text-5xl ">
-						Hi, I&apos;m Vincent 👋
+					<h1 className="text-4xl font-bold tracking-tight sm:text-5xl ">
+						Hi, I&apos;m Vincent{" "}
+						<span className="inline-flex e">👋</span>
 					</h1>
 					<p className="text-lg tracking-wider md:max-w-md">
 						A software engineer with a passion for crafting

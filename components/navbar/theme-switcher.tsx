@@ -5,7 +5,7 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
 export default function ThemeSwitcher() {
-	const { setTheme, theme } = useTheme();
+	const { setTheme, theme, resolvedTheme } = useTheme();
 	const [mounted, setMounted] = useState<boolean>(false);
 
 	useEffect(() => {
@@ -15,31 +15,25 @@ export default function ThemeSwitcher() {
 	if (!mounted) {
 		return null;
 	}
-	function renderThemeChanger() {
-		if (theme === "dark") {
-			return (
-				<Button
-					aria-hidden
-					variant={"ghost"}
-					size={"icon"}
-					onClick={() => setTheme("light")}
-				>
-					<SunIcon className="w-4 h-4" />
-				</Button>
-			);
-		} else {
-			return (
-				<Button
-					aria-hidden
-					variant={"ghost"}
-					size={"icon"}
-					onClick={() => setTheme("dark")}
-				>
-					<MoonIcon className="w-4 h-4" />
-				</Button>
-			);
-		}
-	}
 
-	return <>{renderThemeChanger()}</>;
+	return (
+		<Button
+			aria-hidden
+			variant={"ghost"}
+			size={"icon"}
+			onClick={() =>
+				setTheme(
+					theme === "dark" || resolvedTheme === "dark"
+						? "light"
+						: "dark"
+				)
+			}
+		>
+			{mounted && (theme === "dark" || resolvedTheme === "dark") ? (
+				<SunIcon className="w-4 h-4" />
+			) : (
+				<MoonIcon className="w-4 h-4" />
+			)}
+		</Button>
+	);
 }
