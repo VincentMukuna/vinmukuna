@@ -32,10 +32,26 @@ export const generateStaticParams = async () => {
 
 export default function TagPage({ params }: { params: { tag: string } }) {
   const tag = decodeURI(params.tag)
+  const tags = tag.split('%26')
   // Capitalize first letter and convert space to dash
-  const title = tag[0].toUpperCase() + tag.split(' ').join('-').slice(1)
+  let textTags = tags.map((tag) => tag[0].toUpperCase() + tag.split(' ').join('-').slice(1))
+
+  let lastTag = textTags.pop()
+  let title = 'Blogs'
+  if (textTags.length === 0 && lastTag) {
+    title = lastTag
+  } else if (textTags.length === 1) {
+    title = textTags[0] + ' and ' + lastTag
+  } else {
+    title = textTags.join(', ') + ' and ' + lastTag
+  }
+
   const filteredPosts = allCoreContent(
-    sortPosts(allBlogs.filter((post) => post.tags && post.tags.map((t) => slug(t)).includes(tag)))
+    sortPosts(
+      allBlogs.filter(
+        (post) => post.tags && post.tags.map((t) => slug(t)).some((t) => tags.includes(t))
+      )
+    )
   )
-  return <ListLayout posts={filteredPosts} title={title} />
+  return <ListLayout posts={filteredPosts} title={title + ' blogs'} />
 }

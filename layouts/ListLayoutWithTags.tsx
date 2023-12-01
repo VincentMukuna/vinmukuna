@@ -77,37 +77,80 @@ export default function ListLayoutWithTags({
 
   return (
     <>
-      <div>
-        <div className="pb-6 pt-6">
-          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:hidden sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
+      <div className="space-y-4 divide-y divide-gray-200 dark:divide-gray-700">
+        <div>
+          <h1
+            className={`text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 ${
+              title === 'All Posts' ? 'md:text-6xl' : ' md:text-5xl'
+            } md:leading-14`}
+          >
             {title}
           </h1>
         </div>
-        <div className="flex sm:space-x-24">
-          <div className="hidden h-full max-h-screen min-w-[280px] max-w-[280px] flex-wrap overflow-auto rounded bg-gray-50 pt-5 shadow-md dark:bg-gray-900/70 dark:shadow-gray-800/40 sm:flex">
-            <div className="px-6 py-4">
+        <div className="flex flex-col gap-4">
+          <div className="hidden w-full sm:flex ">
+            <div className="py-4">
               {pathname.startsWith('/blog') ? (
                 <h3 className="font-bold uppercase text-primary-500">Tags</h3>
               ) : (
                 <Link
                   href={`/blog`}
-                  className="font-bold uppercase text-gray-700 hover:text-primary-500 dark:text-gray-300 dark:hover:text-primary-500"
+                  className="font-bold uppercase leading-9 text-gray-700 underline hover:text-primary-500 dark:text-gray-300 dark:hover:text-primary-500"
                 >
-                  All Posts
+                  Remove Filter(s)
                 </Link>
               )}
-              <ul>
+              <ul className="flex max-h-[200px] flex-wrap gap-2 overflow-auto rounded bg-gray-50 px-3 py-2 shadow-md dark:bg-gray-900/70  dark:shadow-gray-800/40">
                 {sortedTags.map((t) => {
                   return (
-                    <li key={t} className="my-3">
-                      {pathname.split('/tags/')[1] === slug(t) ? (
-                        <h3 className="inline px-3 py-2 text-sm font-bold uppercase text-primary-500">
+                    <li
+                      key={t}
+                      className="shrink-0 rounded border dark:border-gray-500 [&:has(h3,a:hover)]:border-primary-400 dark:[&:has(h3,a:hover)]:border-primary-400"
+                    >
+                      {pathname.split('/tags/')[1]?.includes(slug(t)) ? (
+                        <h3 className="inline-flex items-center gap-2 px-3 py-1 text-sm font-bold uppercase text-primary-500">
                           {`${t} (${tagCounts[t]})`}
+                          <Link
+                            href={(() => {
+                              let filters = pathname
+                                .split('/tags/')[1]
+                                .split('&')
+                                .filter((x) => x !== slug(t))
+                              if (filters.length === 0) {
+                                return '/blog'
+                              }
+                              return `/tags/${filters.join('&')}`
+                            })()}
+                            className="text-primary-400"
+                            onClick={() => {}}
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              strokeWidth={1.5}
+                              stroke="currentColor"
+                              className="h-4 w-4 "
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M6 18L18 6M6 6l12 12"
+                              />
+                            </svg>
+                          </Link>
                         </h3>
                       ) : (
                         <Link
-                          href={`/tags/${slug(t)}`}
-                          className="px-3 py-2 text-sm font-medium uppercase text-gray-500 hover:text-primary-500 dark:text-gray-300 dark:hover:text-primary-500"
+                          href={(() => {
+                            let filters = pathname.split('/tags/')[1]?.split('&')
+                            if (!filters) {
+                              return `/tags/${t}`
+                            }
+                            filters = [...filters, slug(t)]
+                            return `/tags/${filters.join('&')}`
+                          })()}
+                          className="inline-flex px-3 py-1 text-sm font-medium uppercase text-gray-500 hover:text-primary-500 dark:text-gray-300 dark:hover:text-primary-500"
                           aria-label={`View posts tagged ${t}`}
                         >
                           {`${t} (${tagCounts[t]})`}
