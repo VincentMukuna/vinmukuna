@@ -10,7 +10,7 @@ import { Metadata } from 'next'
 export async function generateMetadata({ params }: { params: { tag: string } }): Promise<Metadata> {
   const tag = decodeURI(params.tag)
   return genPageMetadata({
-    title: tag,
+    title: 'Blogs',
     description: `${siteMetadata.title} ${tag} tagged content`,
     alternates: {
       canonical: './',
