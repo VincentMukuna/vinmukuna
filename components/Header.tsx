@@ -11,8 +11,8 @@ const Header = () => {
     <header className="flex items-center justify-between py-4">
       <div>
         <Link href="/" aria-label={siteMetadata.headerTitle}>
-          <div className="flex items-center justify-between">
-            <div className="-ml-2 mr-3 mt-2 w-40">
+          <div className="relative flex items-center justify-between">
+            <div className="relative right-7 w-40 scale-75 transform sm:transform-none">
               <Logo />
             </div>
           </div>
