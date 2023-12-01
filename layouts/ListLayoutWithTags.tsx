@@ -112,7 +112,7 @@ export default function ListLayoutWithTags({
                           {`${t} (${tagCounts[t]})`}
                           <Link
                             href={(() => {
-                              let filters = pathname
+                              const filters = pathname
                                 .split('/tags/')[1]
                                 .split('&')
                                 .filter((x) => x !== slug(t))

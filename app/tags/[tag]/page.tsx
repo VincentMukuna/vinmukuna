@@ -34,9 +34,9 @@ export default function TagPage({ params }: { params: { tag: string } }) {
   const tag = decodeURI(params.tag)
   const tags = tag.split('%26')
   // Capitalize first letter and convert space to dash
-  let textTags = tags.map((tag) => tag[0].toUpperCase() + tag.split(' ').join('-').slice(1))
+  const textTags = tags.map((tag) => tag[0].toUpperCase() + tag.split(' ').join('-').slice(1))
 
-  let lastTag = textTags.pop()
+  const lastTag = textTags.pop()
   let title = 'Blogs'
   if (textTags.length === 0 && lastTag) {
     title = lastTag
