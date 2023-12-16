@@ -78,34 +78,35 @@ export default function ListLayoutWithTags({
   return (
     <>
       <div className="space-y-4 divide-y divide-gray-200 dark:divide-gray-700">
-        <div>
+        <div className="space-y-4">
           <h1
-            className={`text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 ${
-              title === 'All Posts' ? 'md:text-6xl' : ' md:text-5xl'
-            } md:leading-14`}
+            className={`text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14`}
           >
             {title}
           </h1>
+          <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
+            {siteMetadata.description}
+          </p>
         </div>
         <div className="flex flex-col gap-4">
           <div className="hidden w-full sm:flex ">
-            <div className="py-4">
+            <div className="w-full py-4">
               {pathname.startsWith('/blog') ? (
                 <h3 className="font-bold uppercase text-primary-500">Tags</h3>
               ) : (
                 <Link
                   href={`/blog`}
-                  className="font-bold uppercase leading-9 text-gray-700 underline hover:text-primary-500 dark:text-gray-300 dark:hover:text-primary-500"
+                  className="font-bold uppercase leading-9 text-gray-700 underline hover:text-primary-500 dark:text-gray-400 dark:hover:text-primary-500"
                 >
                   Remove Filter(s)
                 </Link>
               )}
-              <ul className="flex max-h-[200px] flex-wrap gap-2 overflow-auto rounded bg-gray-50 px-3 py-2 shadow-md dark:bg-gray-900/70  dark:shadow-gray-800/40">
+              <ul className="flex max-h-[100px] w-full flex-wrap gap-2 overflow-auto rounded bg-gray-50 px-3 py-2 shadow-md dark:bg-gray-900/70  dark:shadow-gray-800/40">
                 {sortedTags.map((t) => {
                   return (
                     <li
                       key={t}
-                      className="shrink-0 rounded border dark:border-gray-500 [&:has(h3,a:hover)]:border-primary-400 dark:[&:has(h3,a:hover)]:border-primary-400"
+                      className="shrink-0 rounded border  dark:border-gray-500 [&:has(h3,a:hover)]:border-primary-400 dark:[&:has(h3,a:hover)]:border-primary-400"
                     >
                       {pathname.split('/tags/')[1]?.includes(slug(t)) ? (
                         <h3 className="inline-flex items-center gap-2 px-3 py-1 text-sm font-bold uppercase text-primary-500">
@@ -150,7 +151,7 @@ export default function ListLayoutWithTags({
                             filters = [...filters, slug(t)]
                             return `/tags/${filters.join('&')}`
                           })()}
-                          className="inline-flex px-3 py-1 text-sm font-medium uppercase text-gray-500 hover:text-primary-500 dark:text-gray-300 dark:hover:text-primary-500"
+                          className="inline-flex px-3 py-1 text-sm font-medium uppercase text-gray-400 hover:text-primary-500 dark:text-gray-400 dark:hover:text-primary-500"
                           aria-label={`View posts tagged ${t}`}
                         >
                           {`${t} (${tagCounts[t]})`}
