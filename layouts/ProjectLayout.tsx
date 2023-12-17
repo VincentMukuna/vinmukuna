@@ -12,15 +12,17 @@ export default function ProjectLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-4 ">
       <Image
         src={project.imgSrc}
         alt={`${project.name} project preview`}
-        width={500}
-        height={500}
+        width={700}
+        height={700}
+        className="rounded-md"
       />
-      <h1>{project.name}</h1>
-      <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">{children}</div>
+
+      <h1 className="text-3xl font-bold ">{project.name}</h1>
+      <div className="prose max-w-none pb-8 dark:prose-invert">{children}</div>
       <div className="flex gap-2">
         <Button>Demo</Button>
         <Button>Source</Button>

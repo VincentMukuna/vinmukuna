@@ -1,4 +1,3 @@
-import projectsData from '@/data/projectsData'
 import Card from '@/components/Card'
 import { genPageMetadata } from 'app/seo'
 import { allProjects } from 'contentlayer/generated'
@@ -14,7 +13,7 @@ export default function Projects() {
             Projects
           </h1>
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-            Collection of some of the projects I've contributed to.
+            A collection of some of the projects I've contributed to.
           </p>
         </div>
         <div className="container py-12">

@@ -11,7 +11,7 @@ function Card({ name, summary, imgSrc, href }) {
       >
         {imgSrc &&
           (href ? (
-            <Link href={href} aria-label={`Link to ${name} project`}>
+            <Link scroll={false} href={href} aria-label={`Link to ${name} project `}>
               <Image
                 alt={name}
                 src={imgSrc}

@@ -64,9 +64,11 @@ const MobileNav = () => {
               <Link
                 href={link.href}
                 className={`text-2xl font-bold tracking-widest ${
-                  pathname.includes(link.title.toLocaleLowerCase())
-                    ? ' text-primary-600 '
-                    : 'text-gray-900  dark:text-gray-100'
+                  link.href === '/'
+                    ? pathname === '/' && ' text-primary-600 '
+                    : pathname.includes(link.href.split('/')[1])
+                      ? ' text-primary-600 '
+                      : 'text-gray-900  dark:text-gray-100'
                 }`}
                 onClick={onToggleNav}
               >

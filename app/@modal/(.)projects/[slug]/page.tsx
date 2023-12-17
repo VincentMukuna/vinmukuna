@@ -29,7 +29,7 @@ function Project({ params }: { params: { slug: string } }) {
         }
       }}
     >
-      <SheetContent className="overflow-y-auto border-none sm:max-w-none lg:max-w-xl">
+      <SheetContent className="w-full max-w-none overflow-y-auto border-none md:w-3/4 md:max-w-[50rem] ">
         <SheetHeader>
           <SheetTitle>Project</SheetTitle>
         </SheetHeader>

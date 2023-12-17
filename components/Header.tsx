@@ -11,13 +11,11 @@ import { usePathname } from 'next/navigation'
 const Header = () => {
   const pathname = usePathname()
   return (
-    <header className="flex justify-between py-4 ">
-      <div>
+    <header className="flex justify-between ">
+      <div className="shrink">
         <Link href="/" aria-label={siteMetadata.headerTitle}>
-          <div className="relative flex items-center justify-between">
-            <div className="relative right-7 w-40 scale-75 transform ">
-              <Logo />
-            </div>
+          <div className="relative right-11 w-40 scale-[.65] transform ">
+            <Logo />
           </div>
         </Link>
       </div>
