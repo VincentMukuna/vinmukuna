@@ -10,6 +10,7 @@ import Footer from '@/components/Footer'
 import siteMetadata from '@/data/siteMetadata'
 import { ThemeProviders } from './theme-providers'
 import { Metadata } from 'next'
+import { TailwindIndicator } from '@/components/utils/tailwind-indicator'
 
 const dmSans = DM_Sans({ subsets: ['latin'] })
 
@@ -63,7 +64,7 @@ export default function RootLayout({
   return (
     <html
       lang={siteMetadata.language}
-      className={`${dmSans.className} scroll-smooth`}
+      className={`${dmSans.className} scroll-smooth selection:bg-primary-700 dark:selection:bg-primary-400`}
       suppressHydrationWarning
     >
       <link rel="apple-touch-icon" sizes="76x76" href="/static/favicons/apple-touch-icon.png" />
@@ -91,6 +92,7 @@ export default function RootLayout({
             </div>
           </SectionContainer>
         </ThemeProviders>
+        <TailwindIndicator />
       </body>
     </html>
   )
