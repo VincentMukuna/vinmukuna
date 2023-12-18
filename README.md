@@ -171,7 +171,7 @@ Edit the layout in `app` or content in `data`. With live reloading, the pages au
 
 `data/authors/default.md` - default author information (required). Additional authors can be added as files in `data/authors`.
 
-`data/projectsData.js` - data used to generate styled card on the projects page.
+`data/projects` - data used to generate styled card on the projects page.
 
 `data/headerNavLinks.js` - navigation links.
 
