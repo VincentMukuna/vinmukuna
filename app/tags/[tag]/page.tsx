@@ -34,8 +34,6 @@ export default function TagPage({ params }: { params: { tag: string } }) {
   const tag = decodeURI(params.tag)
   const tags = tag.split('%26')
   // Capitalize first letter and convert space to dash
-  let title = 'Blogs'
-
   const filteredPosts = allCoreContent(
     sortPosts(
       allBlogs.filter(
@@ -43,5 +41,5 @@ export default function TagPage({ params }: { params: { tag: string } }) {
       )
     )
   )
-  return <ListLayout posts={filteredPosts} title={title} />
+  return <ListLayout posts={filteredPosts} title={'Blog'} />
 }
