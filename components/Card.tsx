@@ -3,11 +3,11 @@ import Link from './Link'
 
 function Card({ name, summary, imgSrc, href }) {
   return (
-    <div className="md  group max-w-[544px] p-4 md:w-1/2">
+    <div className="group max-w-[544px] p-4 md:w-1/2">
       <div
         className={`${
           imgSrc && 'h-full'
-        }  relative overflow-hidden rounded-md border border-gray-200 border-opacity-60 dark:border-gray-700`}
+        }  relative overflow-hidden rounded-md border border-gray-200 border-opacity-60 shadow-md dark:border-gray-700`}
       >
         {imgSrc &&
           (href ? (
