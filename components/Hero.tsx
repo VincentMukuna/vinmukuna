@@ -7,10 +7,10 @@ function Hero() {
     <div className="mb-8 flex flex-col items-center justify-center gap-4 md:flex-row lg:justify-between">
       <div className="order-2 flex flex-col items-center gap-y-8 md:items-start">
         <div className="flex w-full max-w-[30rem] flex-col items-center gap-4 text-center md:items-start md:text-start">
-          <h1 className="inline-flex flex-nowrap text-3xl font-extrabold tracking-wide dark:text-gray-200 md:text-5xl">
+          <h1 className="inline-flex flex-nowrap text-3xl font-extrabold tracking-wide dark:text-gray-200 md:text-4xl lg:text-5xl">
             Hi, I&apos;m Vincent <span className="animate-wave repeat-infinite">👋</span>
           </h1>
-          <p className="flex max-w-[3/4] items-center justify-center  text-xl dark:text-gray-400 lg:max-w-none">
+          <p className="flex max-w-[3/4] items-center justify-center  dark:text-gray-300 lg:max-w-none lg:text-xl">
             A software engineer with a passion for crafting intuitive and responsive designs Nulla
             consectetur libero ac leo tristique, eu aliquam elit accumsan.
           </p>
@@ -22,11 +22,11 @@ function Hero() {
           Reach Out
         </Button>
       </div>
-      <div className="order-1 inline-flex w-[20rem] max-w-[25rem]  drop-shadow-lg md:order-2 lg:w-1/2">
+      <div className="order-1 inline-flex w-[20rem] max-w-[25rem] drop-shadow-lg transition duration-300 ease-in-out animate-in fade-in-0  md:order-2 md:w-1/2">
         <img
           alt="developer activity illustration"
           src="static\illustrations\developer-activity-bro.svg"
-          className="pointer-events-none w-full select-none"
+          className="pointer-events-none w-full select-none "
         />
       </div>
     </div>
