@@ -34,17 +34,7 @@ export default function TagPage({ params }: { params: { tag: string } }) {
   const tag = decodeURI(params.tag)
   const tags = tag.split('%26')
   // Capitalize first letter and convert space to dash
-  const textTags = tags.map((tag) => tag[0].toUpperCase() + tag.split(' ').join('-').slice(1))
-
-  const lastTag = textTags.pop()
   let title = 'Blogs'
-  if (textTags.length === 0 && lastTag) {
-    title = lastTag
-  } else if (textTags.length === 1) {
-    title = textTags[0] + ' and ' + lastTag
-  } else {
-    title = textTags.join(', ') + ' and ' + lastTag
-  }
 
   const filteredPosts = allCoreContent(
     sortPosts(
@@ -53,5 +43,5 @@ export default function TagPage({ params }: { params: { tag: string } }) {
       )
     )
   )
-  return <ListLayout posts={filteredPosts} title={title + ' blogs'} />
+  return <ListLayout posts={filteredPosts} title={title} />
 }

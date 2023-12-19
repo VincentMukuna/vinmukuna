@@ -109,22 +109,23 @@ export default function ListLayoutWithTags({
                       className="shrink-0 rounded border  dark:border-gray-500 [&:has(h3,a:hover)]:border-primary-400 dark:[&:has(h3,a:hover)]:border-primary-400"
                     >
                       {pathname.split('/tags/')[1]?.includes(slug(t)) ? (
-                        <h3 className="inline-flex items-center gap-2 px-3 py-1 text-sm font-bold uppercase text-primary-500">
-                          {`${t} (${tagCounts[t]})`}
-                          <Link
-                            href={(() => {
-                              const filters = pathname
-                                .split('/tags/')[1]
-                                .split('&')
-                                .filter((x) => x !== slug(t))
-                              if (filters.length === 0) {
-                                return '/blog'
-                              }
-                              return `/tags/${filters.join('&')}`
-                            })()}
-                            className="text-primary-400"
-                            onClick={() => {}}
-                          >
+                        <Link
+                          href={(() => {
+                            const filters = pathname
+                              .split('/tags/')[1]
+                              .split('&')
+                              .filter((x) => x !== slug(t))
+                            if (filters.length === 0) {
+                              return '/blog'
+                            }
+                            return `/tags/${filters.join('&')}`
+                          })()}
+                          className="text-primary-400"
+                          onClick={() => {}}
+                        >
+                          <h3 className="inline-flex items-center gap-1 px-2 py-1 text-sm font-bold uppercase text-primary-500">
+                            {`${t} (${tagCounts[t]})`}
+
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               fill="none"
@@ -139,8 +140,8 @@ export default function ListLayoutWithTags({
                                 d="M6 18L18 6M6 6l12 12"
                               />
                             </svg>
-                          </Link>
-                        </h3>
+                          </h3>
+                        </Link>
                       ) : (
                         <Link
                           href={(() => {

@@ -7,7 +7,7 @@ function Hero() {
     <div className="mb-8 flex flex-col items-center justify-center gap-4 md:flex-row lg:justify-between">
       <div className="order-2 flex flex-col items-center gap-y-8 md:items-start">
         <div className="flex w-full max-w-[30rem] flex-col items-center gap-4 text-center md:items-start md:text-start">
-          <h1 className="inline-flex flex-nowrap text-4xl font-extrabold tracking-wide dark:text-gray-200 md:text-5xl">
+          <h1 className="inline-flex flex-nowrap text-3xl font-extrabold tracking-wide dark:text-gray-200 md:text-5xl">
             Hi, I&apos;m Vincent <span className="animate-wave repeat-infinite">👋</span>
           </h1>
           <p className="flex max-w-[3/4] items-center justify-center  text-xl dark:text-gray-400 lg:max-w-none">
