@@ -8,7 +8,7 @@ function Skills() {
       </h1>
       <div className="py-4 text-black dark:text-gray-300 ">
         <h2 className="">Some of the technologies I've worked with include: </h2>
-        <ul className="list-inside list-disc space-y-1 ">
+        <ul className="space-y-1 list-disc list-inside ">
           {Object.keys(skillsData).map((category, i) => (
             <li key={i}>
               <span className="font-semibold text-primary-500">
