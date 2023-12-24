@@ -1,23 +1,52 @@
+'use client'
 import skillsData from '@/data/skillsData'
+import LogoIcon from './tech-icons'
+import { useTheme } from 'next-themes'
+import { useEffect, useState } from 'react'
 
 function Skills() {
+  const [mounted, setMounted] = useState(false)
+  const { theme } = useTheme()
+  useEffect(() => setMounted(true), [])
+
+  if (!mounted) {
+    return null
+  }
   return (
-    <div className="space-y-3 divide-y divide-gray-700">
-      <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 ">
-        Skills
-      </h1>
-      <div className="py-4 text-black dark:text-gray-300 ">
-        <h2 className="">Some of the technologies I've worked with include: </h2>
-        <ul className="space-y-1 list-disc list-inside ">
-          {Object.keys(skillsData).map((category, i) => (
-            <li key={i}>
-              <span className="font-semibold text-primary-500">
-                {category.charAt(0).toUpperCase().concat(category.slice(1))}
-              </span>
-              : {skillsData[category].join(', ')}
-            </li>
-          ))}
-        </ul>
+    <div>
+      <div className="flex flex-col items-center justify-between py-4 text-black dark:text-gray-300 md:flex-row">
+        <div className="flex basis-2/5 items-start">
+          {theme === 'dark' ? (
+            <img
+              alt="developer typing"
+              src="static/illustrations/code-typing-bro-dark.svg"
+              className="pointer-events-none w-full select-none "
+            />
+          ) : (
+            <img
+              alt="developer typing"
+              src="static/illustrations/code-typing-bro.svg"
+              className="pointer-events-none w-full select-none"
+            />
+          )}
+        </div>
+        <div className="basis-1/2 space-y-3">
+          <h1 className="border-b border-gray-700 pb-2 text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 ">
+            Skills
+          </h1>
+          <h2 className="">
+            I have expertise in leveraging various modern technologies to turn your great design
+            ideas into intuitive user interfaces. Some of the tools I've used include:{' '}
+          </h2>
+          <ul className="mt-3 list-inside list-decimal space-y-1 ">
+            {skillsData.map((skill, i) => (
+              <li key={i} className="items-ceneter inline-flex w-1/2 gap-2">
+                <LogoIcon kind={skill.icon} className="h-6 w-6" />
+                {skill.name}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   )

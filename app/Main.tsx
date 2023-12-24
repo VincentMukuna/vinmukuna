@@ -4,13 +4,16 @@ import siteMetadata from '@/data/siteMetadata'
 import { formatDate } from 'pliny/utils/formatDate'
 import NewsletterForm from 'pliny/ui/NewsletterForm'
 import Hero from '@/components/Hero'
+import Skills from '@/components/Skills'
 
 const MAX_DISPLAY = 5
 
 export default function Home({ posts }) {
   return (
-    <>
+    <section className="relative space-y-4">
       <Hero />
+      <Skills />
+
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className="space-y-2 pt-6 md:space-y-5">
           <h1 className="text-2xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-3xl sm:leading-10 md:text-4xl md:leading-14">
@@ -85,6 +88,6 @@ export default function Home({ posts }) {
           <NewsletterForm />
         </div>
       )} */}
-    </>
+    </section>
   )
 }
