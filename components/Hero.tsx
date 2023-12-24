@@ -4,25 +4,29 @@ import { Button } from './ui/button'
 
 function Hero() {
   return (
-    <div className="mb-8 flex flex-col items-center justify-center gap-4 md:flex-row lg:justify-between">
-      <div className="order-2 flex flex-col items-center gap-y-8 md:items-start">
-        <div className="flex w-full max-w-[30rem] flex-col items-center gap-4 text-center md:items-start md:text-start">
+    <div
+      className="mx-auto flex h-[80vh]  max-w-[30rem] flex-col items-center justify-center gap-4 from-gray-900 to-red-700
+      md:max-w-none md:flex-row lg:justify-between
+    "
+    >
+      <div className="order-2 flex basis-1/2 flex-col items-center gap-y-8 md:items-start">
+        <div className="flex w-full flex-col items-center gap-4 text-center md:items-start md:text-start">
           <h1 className="inline-flex flex-nowrap text-3xl font-extrabold tracking-wide dark:text-gray-200 md:text-4xl lg:text-5xl">
             Hi, I&apos;m Vincent <span className="animate-wave repeat-infinite">👋</span>
           </h1>
-          <p className="flex max-w-[3/4] items-center justify-center  dark:text-gray-300 lg:max-w-none lg:text-xl">
+          <p className="flex items-center justify-center dark:text-gray-300 lg:text-lg">
             A software engineer with a passion for crafting intuitive and responsive designs Nulla
             consectetur libero ac leo tristique, eu aliquam elit accumsan.
           </p>
         </div>
         <Button
           size={'lg'}
-          className="w-fit rounded-full bg-emerald-700 text-lg dark:bg-emerald-700 dark:text-white dark:hover:bg-emerald-500"
+          className="w-fit rounded-full bg-accent-800 text-lg dark:bg-accent-700 dark:text-white dark:hover:bg-emerald-500"
         >
           Reach Out
         </Button>
       </div>
-      <div className="order-1 inline-flex w-[20rem] max-w-[25rem] drop-shadow-lg transition duration-300 ease-in-out animate-in fade-in-0  md:order-2 md:w-1/2">
+      <div className="order-1 inline-flex basis-2/5 drop-shadow-lg transition duration-300 ease-in-out animate-in fade-in-0 md:order-2 ">
         <img
           alt="developer activity illustration"
           src="static\illustrations\developer-activity-bro.svg"
