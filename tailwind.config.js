@@ -34,7 +34,24 @@ module.exports = {
       fontFamily: {
         sans: ['var(--font-space-grotesk)', ...fontFamily.sans],
       },
-      colors: { primary: colors.rose, gray: colors.neutral, accent: colors.red },
+      colors: {
+        primary: colors.rose,
+        gray: colors.neutral,
+        accent: colors.red,
+        pine: {
+          50: '#EEFCFB',
+          100: '#CBF6F3',
+          200: '#A8F0EB',
+          300: '#73E7E0',
+          400: '#3FDED4',
+          500: '#23D1C6',
+          600: '#136F63',
+          700: '#188C84',
+          800: '#126963',
+          900: '#06231F',
+          950: '#031110',
+        },
+      },
 
       keyframes: {
         'accordion-down': {

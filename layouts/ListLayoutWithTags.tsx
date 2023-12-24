@@ -84,7 +84,7 @@ export default function ListLayoutWithTags({
           >
             {title}
           </h1>
-          <p className="pt-3 text-lg leading-7 text-gray-500 dark:text-gray-400">
+          <p className="pt-3 text-lg leading-7 text-gray-500 dark:text-gray-300">
             {siteMetadata.description} Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed
             magni molestias provident molestiae soluta nulla minus esse voluptatibus, Tempore nulla
             recusandae accusantium!

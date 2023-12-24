@@ -1,5 +1,5 @@
 'use client'
-import Image from 'next/image'
+import { motion } from 'framer-motion'
 import { Button } from './ui/button'
 
 function Hero() {
@@ -9,7 +9,11 @@ function Hero() {
       md:max-w-none md:flex-row lg:justify-between
     "
     >
-      <div className="order-2 flex basis-1/2 flex-col items-center gap-y-8 md:items-start">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="order-2 flex basis-1/2 flex-col items-center gap-y-8 md:items-start"
+      >
         <div className="flex w-full flex-col items-center gap-4 text-center md:items-start md:text-start">
           <h1 className="inline-flex flex-nowrap text-3xl font-extrabold tracking-wide dark:text-gray-200 md:text-4xl lg:text-5xl">
             Hi, I&apos;m Vincent <span className="animate-wave repeat-infinite">👋</span>
@@ -25,9 +29,12 @@ function Hero() {
         >
           Reach Out
         </Button>
-      </div>
-      <div className="order-1 inline-flex basis-2/5 drop-shadow-lg transition duration-300 ease-in-out animate-in fade-in-0 md:order-2 ">
-        <img
+      </motion.div>
+      <div className="order-1 inline-flex basis-2/5 drop-shadow-lg md:order-2 ">
+        <motion.img
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
           alt="developer activity illustration"
           src="static\illustrations\developer-activity-bro.svg"
           className="pointer-events-none w-full select-none "
