@@ -1,4 +1,5 @@
 'use client'
+
 import skillsData from '@/data/skillsData'
 import LogoIcon from './tech-icons'
 import { useTheme } from 'next-themes'
