@@ -1,6 +1,8 @@
 'use client'
+import siteMetadata from '@/data/siteMetadata'
 import { motion } from 'framer-motion'
-import { Button } from './ui/button'
+import CustomLink from './Link'
+import { buttonVariants } from './ui/button'
 
 function Hero() {
   return (
@@ -19,16 +21,15 @@ function Hero() {
             Hi, I&apos;m Vincent <span className="animate-wave repeat-infinite">👋</span>
           </h1>
           <p className="flex items-center justify-center dark:text-gray-300 lg:text-lg">
-            A software engineer with a passion for crafting intuitive and responsive designs Nulla
-            consectetur libero ac leo tristique, eu aliquam elit accumsan.
+            A software engineer with a passion for crafting intuitive and responsive designs.
           </p>
         </div>
-        <Button
-          size={'lg'}
-          className="w-fit rounded-full bg-accent-800 text-lg dark:bg-accent-700 dark:text-white dark:hover:bg-emerald-500"
+        <CustomLink
+          href={`mailto:${siteMetadata.email}`}
+          className={buttonVariants({ size: 'lg' })}
         >
-          Reach Out
-        </Button>
+          Reach out
+        </CustomLink>
       </motion.div>
       <div className="order-1 inline-flex basis-2/5 drop-shadow-lg md:order-2 ">
         <motion.img
