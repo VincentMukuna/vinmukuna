@@ -1,15 +1,15 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 'use client'
 
-import { usePathname } from 'next/navigation'
-import { slug } from 'github-slugger'
-import { formatDate } from 'pliny/utils/formatDate'
-import { CoreContent } from 'pliny/utils/contentlayer'
-import type { Blog } from 'contentlayer/generated'
 import Link from '@/components/Link'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import tagData from 'app/tag-data.json'
+import type { Blog } from 'contentlayer/generated'
+import { slug } from 'github-slugger'
+import { usePathname } from 'next/navigation'
+import { CoreContent } from 'pliny/utils/contentlayer'
+import { formatDate } from 'pliny/utils/formatDate'
 
 interface PaginationProps {
   totalPages: number
@@ -85,9 +85,7 @@ export default function ListLayoutWithTags({
             {title}
           </h1>
           <p className="pt-3 text-lg leading-7 text-gray-500 dark:text-gray-300">
-            {siteMetadata.description} Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed
-            magni molestias provident molestiae soluta nulla minus esse voluptatibus, Tempore nulla
-            recusandae accusantium!
+            {siteMetadata.description}
           </p>
         </div>
         <div className="flex flex-col gap-4">
