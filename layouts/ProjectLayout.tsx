@@ -1,4 +1,5 @@
-import { Button } from '@/components/ui/button'
+import CustomLink from '@/components/Link'
+import { buttonVariants } from '@/components/ui/button'
 import { Project } from 'contentlayer/generated'
 import Image from 'next/image'
 import { CoreContent } from 'pliny/utils/contentlayer'
@@ -24,8 +25,16 @@ export default function ProjectLayout({
       <h1 className="text-3xl font-bold ">{project.name}</h1>
       <div className="prose max-w-none pb-8 dark:prose-invert">{children}</div>
       <div className="flex gap-2">
-        <Button>Demo</Button>
-        <Button>Source</Button>
+        {project.demo ? (
+          <CustomLink href={project.demo} className={buttonVariants()}>
+            Demo
+          </CustomLink>
+        ) : null}
+        {project.source ? (
+          <CustomLink href={project.source} className={buttonVariants({ variant: 'secondary' })}>
+            Source
+          </CustomLink>
+        ) : null}
       </div>
     </div>
   )
